@@ -1,73 +1,90 @@
-# Bagus Hidayat
-## Backend Developer | API Specialist
+# Bagus Hidayat <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="30">
+## 💻 Backend Developer | API Specialist
 
-![Developer Banner](https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif)
+<p align="center">
+  <img src="https://media.giphy.com/media/f3iwJFOVOwuy7K6FFw/giphy.gif" alt="Developer Banner" width="600"/>
+</p>
 
 ## 👨‍💻 About Me
+Hello world! I'm **Bagus Hidayat**, a passionate backend developer crafting robust and scalable APIs that power modern web applications. I transform complex business requirements into elegant, efficient server-side solutions that stand the test of time.
 
-Hello! I'm **Bagus Hidayat**, a passionate junior backend developer with a focus on building robust and scalable APIs. I specialize in creating efficient server-side solutions that power modern web applications. My goal is to deliver clean, maintainable code that meets business requirements while following industry best practices.
+<img align="right" src="https://media.giphy.com/media/hS42TuYYnANLFR9IRQ/giphy.gif" width="300">
 
-## 🛠️ Technical Skills
+## 🛠️ Tech Stack
 
-### Languages
-- JavaScript/TypeScript
-- PHP
-- SQL
+### 🖥️ Client Side
+<p align="left">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="React" width="40" height="40"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg" alt="Next.js" width="40" height="40"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" width="40" height="40"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="TypeScript" width="40" height="40"/>
+</p>
 
-### Frameworks & Libraries
-- **Next.js** - Server-side rendering and API routes
-- **Laravel** - PHP framework for web application development
-- **React** - Frontend integration experience
-- **Express.js** - RESTful API development
+### ⚙️ Server Side
+<p align="left">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="Node.js" width="40" height="40"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="Express.js" width="40" height="40"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" alt="PHP" width="40" height="40"/>
+  <img src="https://cdn.worldvectorlogo.com/logos/laravel-2.svg" alt="Laravel" width="40" height="40"/>
+</p>
 
-### Database Systems
-- MySQL
-- PostgreSQL
-- MongoDB
+### 🗄️ Database
+<p align="left">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="MySQL" width="60" height="60"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="PostgreSQL" width="60" height="60"/>
+</p>
 
-### Development Tools
-- Git/GitHub
-- Docker
-- Postman/Insomnia
-- npm/Composer
-
-## 💼 Portfolio Highlights
-
-![API Development](https://media.giphy.com/media/l3vRfNA1p0rvhMSvS/giphy.gif)
-
-### E-Commerce API (Laravel)
-Built a comprehensive RESTful API for an e-commerce platform handling product catalog, user authentication, cart management, and order processing.
-
-### Content Management System (Next.js)
-Developed a headless CMS with API endpoints for content creation, management, and delivery with user role-based permissions.
-
-### Real-time Chat Application Backend (Node.js/TypeScript)
-Created a scalable WebSocket-based backend for a real-time messaging application with message persistence and user presence tracking.
+### 🧰 Development Tools
+<p align="left">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="Git" width="40" height="40"/>
+  <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="Postman" width="40" height="40"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/npm/npm-original-wordmark.svg" alt="npm" width="40" height="40"/>
+</p>
 
 ## 🚀 My Approach to Development
 
-I believe in:
-- Writing clean, self-documenting code
-- Following RESTful design principles
-- Thorough testing and documentation
-- Continuous learning and improvement
+<p align="center">
+  <img src="https://media.giphy.com/media/aNqEFrYVnsS52/giphy.gif" alt="Coding Process" width="400"/>
+</p>
 
-![Coding Process](https://media.giphy.com/media/13HgwGsXF0aiGY/giphy.gif)
-
-## 📫 How to Reach Me
-
-- **Email**: bagus.hidayat.id@gmail.com
-- **LinkedIn**: [Bagus Hidayat](https://linkedin.com/in/bagushidayat)
-- **GitHub**: [bagushidayat](https://github.com/BagusHidayat21)
+I'm guided by these core principles:
+- ✨ Clean, self-documenting code that speaks for itself
+- 🏗️ Architectural patterns that scale with your business
+- 🧪 Comprehensive testing strategies that catch issues early
+- 📝 Documentation that teammates actually want to read
+- 🔄 Continuous improvement through learning and adaptation
 
 ## 📊 GitHub Stats
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=bagushidayat&show_icons=true&theme=radical)
+<p align="center">
+<img src="https://github-readme-stats.vercel.app/api?username=bagushidayat&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
+</p>
+
+<p align="center">
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=bagushidayat&theme=tokyonight" alt="GitHub Streak" />
+</p>
+
+## 🌐 Connect With Me
+
+<p align="center">
+  <a href="mailto:bagus.hidayat.id@gmail.com">
+    <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/>
+  </a>
+  <a href="https://linkedin.com/in/bagushidayat">
+    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
+  </a>
+  <a href="https://github.com/BagusHidayat21">
+    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
+  </a>
+</p>
 
 ---
 
-> "The best code is no code at all. Every new line of code you willingly bring into the world is code that has to be debugged, read, and maintained." - Jeff Atwood
+<p align="center">
+  <img src="https://media.giphy.com/media/RbDKaczqWovIugyJmW/giphy.gif" width="400"/>
+</p>
 
+> "Programming isn't about what you know; it's about what you can figure out." - Chris Pine
 ---
 
 ⭐️ From [bagushidayat](https://github.com/bagushidayat)
