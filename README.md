@@ -70,7 +70,7 @@ I'm guided by these core principles:
   <a href="mailto:bagus.hidayat.id@gmail.com">
     <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/>
   </a>
-  <a href="https://linkedin.com/in/bagushidayat">
+  <a href="www.linkedin.com/in/bagus-hidayat-154898290">
     <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
   </a>
   <a href="https://github.com/BagusHidayat21">
@@ -87,4 +87,4 @@ I'm guided by these core principles:
 > "Programming isn't about what you know; it's about what you can figure out." - Chris Pine
 ---
 
-⭐️ From [bagushidayat](https://github.com/bagushidayat)
+⭐️ From [bagushidayat](https://github.com/BagusHidayat21)
