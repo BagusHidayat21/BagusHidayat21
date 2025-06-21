@@ -16,19 +16,19 @@ const Footer: React.FC = () => {
               
               {/* Next.js */}
               <div className="flex flex-col items-center space-y-2">
-                <img src="/icons/nextjs.svg" alt="" className="h-10 w-10"/>
+                <img src="/icons/nextjs.svg" alt="" className="h-6 w-6"/>
                 <span className="text-xs text-gray-500">Next.js</span>
               </div>
 
               {/* React */}
               <div className="flex flex-col items-center space-y-2">
-                <img src="/icons/react.svg" alt="" className="h-10 w-10" />
+                <img src="/icons/react.svg" alt="" className="h-6 w-6" />
                 <span className="text-xs text-gray-500">React</span>
               </div>
 
               {/* Tailwind CSS */}
               <div className="flex flex-col items-center space-y-2">
-                <img src="/icons/tailwind.svg" alt="" className="h-10 w-10"/>
+                <img src="/icons/tailwind.svg" alt="" className="h-6 w-6"/>
                 <span className="text-xs text-gray-500">Tailwind</span>
               </div>
 

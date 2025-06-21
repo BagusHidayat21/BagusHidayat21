@@ -19,23 +19,4 @@ body {
   color: var(--foreground);
   font-family: var(--font-poppins);
   scroll-behavior: smooth;
-  @keyframes spin-slow {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-  
-  .animate-spin-slow {
-    animation: spin-slow 6s linear infinite;
-  }
-  
-  @keyframes fade-in-out {
-    0%, 100% { opacity: 0; }
-    50% { opacity: 1; }
-  }
-  
-  .animate-fade-in-out {
-    animation: fade-in-out 2s infinite;
-  }
-  
 }
-

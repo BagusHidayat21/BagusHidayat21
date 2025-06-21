@@ -2,11 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-
-interface TopbarProps {
-    logo?: string;
-    links?: { name: string,  href: string }[];
-}
+import { TopbarProps } from "@/types";
 
 const Topbar: React.FC<TopbarProps> = ({ 
     logo = "Hid.", 
@@ -14,6 +10,7 @@ const Topbar: React.FC<TopbarProps> = ({
       { name: "About", href: "#about" },
       { name: "Tech Stack", href: "#tech-stack" },
       { name: "Projects", href: "#projects" },
+      { name: "Contacts", href: "#contact" },
     ]
   }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -30,7 +27,7 @@ const Topbar: React.FC<TopbarProps> = ({
           };
         }).filter(Boolean) as { name: string, offsetTop: number }[];
     
-        const scrollPosition = window.scrollY + 100; // 100 for offset
+        const scrollPosition = window.scrollY + 100;
     
         for (let i = sections.length - 1; i >= 0; i--) {
           if (scrollPosition >= sections[i].offsetTop) {

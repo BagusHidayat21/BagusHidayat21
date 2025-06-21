@@ -1,48 +1,40 @@
-// components/ClientLayout.tsx
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import LoadingScreen from './Loading';
+import React, { useEffect, useState } from "react";
+import LoadingScreen from "@/components/Loading";
 
-interface ClientLayoutProps {
+export default function LoadingWrapper({
+  children,
+}: {
   children: React.ReactNode;
-}
-
-const ClientLayout: React.FC<ClientLayoutProps> = ({ children }) => {
+}) {
   const [isLoading, setIsLoading] = useState(true);
   const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
-    // Check if user has visited before
-    const hasVisited = sessionStorage.getItem('hasVisited');
-    
-    if (hasVisited) {
-      // Skip loading screen for returning visitors
+    const timer = setTimeout(() => {
       setIsLoading(false);
-      setShowContent(true);
-    }
+      setTimeout(() => {
+        setShowContent(true);
+      }, 300);
+    }, 5500);
+
+    return () => clearTimeout(timer);
   }, []);
 
-  const handleLoadingComplete = () => {
-    // Mark as visited for this session
-    sessionStorage.setItem('hasVisited', 'true');
-    setIsLoading(false);
-    
-    // Smooth transition to content
-    setTimeout(() => {
-      setShowContent(true);
-    }, 300);
-  };
-
-  if (isLoading) {
-    return <LoadingScreen onComplete={handleLoadingComplete} />;
-  }
+  useEffect(() => {
+    document.title = "Bagus Hidayat - Portfolio";
+  }, []);
+  
 
   return (
-    <div className={`transition-opacity duration-500 ${showContent ? 'opacity-100' : 'opacity-0'}`}>
-      {children}
-    </div>
+    <>
+      {isLoading && <LoadingScreen onComplete={() => {}} />}
+      {showContent && (
+        <div className="transition-opacity duration-500 opacity-100">
+          {children}
+        </div>
+      )}
+    </>
   );
-};
-
-export default ClientLayout;
+}

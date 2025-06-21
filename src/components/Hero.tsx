@@ -1,35 +1,16 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { ArrowDown, Github, Linkedin, Mail, MapPin } from 'lucide-react';
+import { ArrowDown, MapPin } from 'lucide-react';
 import { Typewriter } from 'react-simple-typewriter';
-
-interface HeroProps {
-  name?: string;
-  title?: string;
-  subtitle?: string;
-  description?: string;
-  location?: string;
-  socialLinks?: {
-    github?: string;
-    linkedin?: string;
-    email?: string;
-  };
-  ctaText?: string;
-  ctaHref?: string;
-}
+import { HeroProps } from '@/types';
 
 const HeroSection: React.FC<HeroProps> = ({
   name = "Bagus Hidayat",
-  title = "Backend Developer",
-  subtitle = "Crafting Robust Backend Experiences",
-  description = "I design and develop robust, scalable backend applications using Node.js, Express.js, PostgreSQL, and React.",
+  title = "Fullstack Developer",
+  subtitle = "Crafting Scalable Fullstack Experiences",
+  description = "I design and develop robust, scalable fullstack applications using Node.js, Express.js, PostgreSQL, and React. I also develop with Laravel, PHP, and React.",
   location = "Malang, Indonesia",
-  socialLinks = {
-    github: "https://github.com/BagusHidayat21",
-    linkedin: "https://linkedin.com/in/bagushidayat-id",
-    email: "mailto:bagus.hidayat.id@gmail.com"
-  },
   ctaText = "View My Work",
   ctaHref = "#projects"
 }) => {
@@ -55,7 +36,7 @@ const HeroSection: React.FC<HeroProps> = ({
   }, []);
 
   return (
-    <section className="min-h-screen bg-white flex items-center justify-center py-20 lg:py-20 bg-white">
+    <section className="min-h-screen bg-white flex items-center justify-center px-8 py-20 lg:py-20 bg-white">
       <div className="max-w-4xl mx-auto text-center">
         
         {/* Content */}
@@ -92,38 +73,6 @@ const HeroSection: React.FC<HeroProps> = ({
             </div>
           </div>
 
-          {/* Social Links */}
-          <div className="flex items-center justify-center space-x-6">
-            {socialLinks.github && (
-              <a 
-                href={socialLinks.github}
-                className="p-4 border border-gray-200 rounded-full hover:border-black hover:bg-black hover:text-white transition-all duration-300 group"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Github size={24} />
-              </a>
-            )}
-            {socialLinks.linkedin && (
-              <a 
-                href={socialLinks.linkedin}
-                className="p-4 border border-gray-200 rounded-full hover:border-black hover:bg-black hover:text-white transition-all duration-300 group"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Linkedin size={24} />
-              </a>
-            )}
-            {socialLinks.email && (
-              <a 
-                href={socialLinks.email}
-                className="p-4 border border-gray-200 rounded-full hover:border-black hover:bg-black hover:text-white transition-all duration-300 group"
-              >
-                <Mail size={24} />
-              </a>
-            )}
-          </div>
-
           {/* CTA Button */}
           <div className="pt-8">
             <a
@@ -150,16 +99,6 @@ const HeroSection: React.FC<HeroProps> = ({
                 <div className="text-sm text-gray-600 font-medium tracking-wide">YEARS EXP</div>
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 right-8 transform animate-bounce">
-          <div className="flex flex-col items-center space-y-2 text-gray-400">
-            <a href="#about" className="flex flex-col items-center space-y-2 text-gray-400 hover:text-black transition-colors">
-              <span className="text-xs font-medium tracking-widest uppercase">Scroll</span>
-              <ArrowDown size={16} />
-            </a>
           </div>
         </div>
       </div>

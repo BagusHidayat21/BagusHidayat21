@@ -1,14 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-
-interface AboutProps {
-  title?: string;
-  subtitle?: string;
-  description?: string[];
-  imageUrl?: string;
-  resumeUrl?: string;
-}
+import { AboutProps } from '@/types';
 
 const AboutSection: React.FC<AboutProps> = ({
   title = "About Me",
@@ -27,9 +20,8 @@ const AboutSection: React.FC<AboutProps> = ({
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
+        // Always set visibility based on current intersection state
+        setIsVisible(entry.isIntersecting);
       },
       { threshold: 0.3 }
     );
@@ -51,7 +43,7 @@ const AboutSection: React.FC<AboutProps> = ({
 
   return (
     <section ref={sectionRef} id="about" className="py-20 lg:py-20 bg-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-8 lg:px-8">
         
         {/* Section Header */}
         <div className={`text-center mb-16 transition-all duration-1000 ${

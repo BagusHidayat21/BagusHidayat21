@@ -1,4 +1,3 @@
-// app/layout.tsx
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
@@ -19,15 +18,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body className={`${poppins.variable} font-sans antialiased`}>
         <ClientLayout>
           <header><Topbar /></header>
-          {children}
+          <main>{children}</main>
           <footer><Footer /></footer>
         </ClientLayout>
       </body>

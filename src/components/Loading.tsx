@@ -2,10 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-
-interface LoadingScreenProps {
-  onComplete: () => void;
-}
+import { LoadingScreenProps } from '@/types';
 
 const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
   const [progress, setProgress] = useState(0);

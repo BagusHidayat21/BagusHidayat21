@@ -1,28 +1,30 @@
-'use client';
+import React, { useState, useEffect, useRef } from 'react';
+import { Github, ExternalLink, Code2, Briefcase, Users, Globe, Award, Calendar, ArrowUpRight } from 'lucide-react';
 
-import React from 'react';
-import { Github, ExternalLink, Calendar, Code2, Briefcase, Award, Users, Globe } from 'lucide-react';
+const ProjectCards = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
 
-interface Project {
-  id: number;
-  title: string;
-  role: string;
-  description: string;
-  techStack: string[];
-  category: string;
-  link?: string;
-  githubRepo?: string;
-  year: string;
-  status: 'live' | 'completed' | 'development';
-  features: string[];
-}
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
 
-const Portfolio: React.FC = () => {
-  const projects: Project[] = [
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  const projects = [
     {
       id: 1,
-      title: "TAG (Jenangan Tap Attendance Gateway)",
-      role: "API Developer",
+      title: "J-TAG (Jenangan Tap Attendance Gateway)",
+      role: "Full-Stack Developer",
       description: "Developed a RESTful API for an RFID-based attendance system in collaboration with SMK Negeri 1 Jenangan. Focused on real-time data processing and integration with the school management system.",
       techStack: ["PostgreSQL", "Express.js", "React", "Node.js"],
       category: "Enterprise API",
@@ -30,7 +32,7 @@ const Portfolio: React.FC = () => {
       githubRepo: "https://github.com/BagusHidayat21/RFID-Absen",
       year: "2024",
       status: "live",
-      features: ["RFID Integration", "Real-time Data Processing", "School Management Integration", "Attendance Analytics"]
+      image: "images/J-Tag.png"
     },
     {
       id: 2,
@@ -42,24 +44,24 @@ const Portfolio: React.FC = () => {
       githubRepo: "https://github.com/BagusHidayat21/Website-Mobil-Laravel-10",
       year: "2024",
       status: "completed",
-      features: ["Vehicle Inventory Management", "Booking System", "Payment Processing", "Admin Panel", "Responsive Design"]
+      image: "images/Carfy.png"
     },
     {
       id: 3,
       title: "HealMe – Mental Health Platform",
-      role: "Laravel Developer",
+      role: "Full-Stack Developer",
       description: "Developed a mental health consultation platform using Laravel 10 for Wintex IID 2024. Implemented secure user authentication, appointment scheduling, mood tracking, and anonymous support forums.",
-      techStack: ["Laravel", "PHP", "MySQL", "Tailwind CSS", "JavaScript", "Authentication", "Forum System"],
+      techStack: ["Laravel", "PHP", "MySQL", "Tailwind CSS", "JavaScript"],
       category: "Healthcare Platform",
       githubRepo: "https://github.com/BagusHidayat21/HealMe",
       year: "2024",
       status: "completed",
-      features: ["Secure Authentication", "Appointment Scheduling", "Mood Tracking", "Anonymous Forums", "Resource Library"]
+      image: "images/HealMe.png"
     },
     {
       id: 4,
       title: "Cahaya Dunia Village Library Website",
-      role: "Web Developer",
+      role: "Full-Stack Developer",
       description: "Developed a digital library management system for the Ngadimulyo Village Government, including features for book cataloging, member management, and borrowing/returning processes.",
       techStack: ["PHP", "MySQL", "HTML5", "CSS3", "JavaScript", "Bootstrap"],
       category: "Government System",
@@ -67,175 +69,223 @@ const Portfolio: React.FC = () => {
       link: "http://perpusdesa-cahayadunia.ngadimulyo-trenggalek.my.id/",
       year: "2024",
       status: "live",
-      features: ["Book Cataloging", "Member Management", "Borrowing System", "Admin Dashboard", "Staff Training"]
+      image: "images/perpusdes.png"
     },
     {
       id: 5,
       title: "UangKita – Financial Planning Web App",
       role: "Full-Stack Developer",
       description: "Developed a financial planning and savings management application with features like goal-based savings trackers, budget planners, and financial projections using Agile development.",
-      techStack: ["Laravel", "PHP", "MySQL", "Chart.js", "Bootstrap", "JavaScript", "Agile Methodology"],
+      techStack: ["Laravel", "PHP", "MySQL", "Chart.js", "Bootstrap", "JavaScript"],
       category: "Financial Application",
       githubRepo: "https://github.com/BagusHidayat21/UangKita",
       year: "2024",
       status: "completed",
-      features: ["Goal-based Savings", "Budget Planning", "Financial Projections", "Interactive Dashboards", "Agile Development"]
+      image: "images/uangkita.png"
     }
   ];
 
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'live':
-        return 'bg-green-50 text-green-700 border-green-200';
-      case 'development':
-        return 'bg-blue-50 text-blue-700 border-blue-200';
-      case 'completed':
-        return 'bg-gray-50 text-gray-700 border-gray-200';
-      default:
-        return 'bg-gray-50 text-gray-700 border-gray-200';
-    }
-  };
-
-  const getStatusIcon = (status: string) => {
-    switch (status) {
-      case 'live':
-        return <Globe className="w-3 h-3" />;
-      case 'development':
-        return <Code2 className="w-3 h-3" />;
-      case 'completed':
-        return <Award className="w-3 h-3" />;
-      default:
-        return <Code2 className="w-3 h-3" />;
-    }
-  };
-
-  const getCategoryIcon = (category: string) => {
+  const getCategoryConfig = (category: string) => {
     switch (category) {
       case 'Enterprise API':
-        return <Briefcase className="w-5 h-5 text-blue-600" />;
+        return { 
+          icon: <Briefcase className="w-4 h-4" />, 
+          color: 'bg-gray-900 text-white'
+        };
       case 'Web Application':
-        return <Globe className="w-5 h-5 text-green-600" />;
+        return { 
+          icon: <Globe className="w-4 h-4" />, 
+          color: 'bg-black text-white'
+        };
       case 'Healthcare Platform':
-        return <Users className="w-5 h-5 text-red-600" />;
+        return { 
+          icon: <Users className="w-4 h-4" />, 
+          color: 'bg-gray-800 text-white'
+        };
       case 'Government System':
-        return <Award className="w-5 h-5 text-purple-600" />;
+        return { 
+          icon: <Award className="w-4 h-4" />, 
+          color: 'bg-gray-700 text-white'
+        };
       case 'Financial Application':
-        return <Code2 className="w-5 h-5 text-yellow-600" />;
+        return { 
+          icon: <Code2 className="w-4 h-4" />, 
+          color: 'bg-gray-900 text-white'
+        };
       default:
-        return <Code2 className="w-5 h-5 text-gray-600" />;
+        return { 
+          icon: <Code2 className="w-4 h-4" />, 
+          color: 'bg-gray-900 text-white'
+        };
     }
   };
 
-  const getTechColor = (tech: string) => {
-    const colors: Record<string, string> = {
-      'Laravel': 'bg-red-100 text-red-800 border-red-200',
-      'Laravel 10': 'bg-red-100 text-red-800 border-red-200',
-      'PHP': 'bg-indigo-100 text-indigo-800 border-indigo-200',
-      'PostgreSQL': 'bg-blue-100 text-blue-800 border-blue-200',
-      'MySQL': 'bg-blue-100 text-blue-800 border-blue-200',
-      'Node.js': 'bg-green-100 text-green-800 border-green-200',
-      'Express.js': 'bg-yellow-100 text-yellow-800 border-yellow-200',
-      'React': 'bg-blue-100 text-blue-800 border-blue-200',
-      'JavaScript': 'bg-yellow-100 text-yellow-800 border-yellow-200',
-      'Bootstrap': 'bg-purple-100 text-purple-800 border-purple-200',
-      'Tailwind CSS': 'bg-cyan-100 text-cyan-800 border-cyan-200',
-      'HTML5': 'bg-orange-100 text-orange-800 border-orange-200',
-      'CSS3': 'bg-blue-100 text-blue-800 border-blue-200',
-      'Chart.js': 'bg-pink-100 text-pink-800 border-pink-200',
-      'RESTful API': 'bg-green-100 text-green-800 border-green-200',
-      'RFID Integration': 'bg-gray-100 text-gray-800 border-gray-200',
-      'Real-time Processing': 'bg-emerald-100 text-emerald-800 border-emerald-200',
-      'Payment Gateway': 'bg-violet-100 text-violet-800 border-violet-200',
-      'Authentication': 'bg-slate-100 text-slate-800 border-slate-200',
-      'Forum System': 'bg-amber-100 text-amber-800 border-amber-200',
-      'Agile Methodology': 'bg-teal-100 text-teal-800 border-teal-200',
-    };
-    return colors[tech] || 'bg-gray-100 text-gray-800 border-gray-200';
+  const getStatusConfig = (status: string) => {
+    switch (status) {
+      case 'live':
+        return { text: 'Live', color: 'bg-white text-gray-900 border border-gray-200' };
+      case 'completed':
+        return { text: 'Completed', color: 'bg-gray-900 text-white' };
+      case 'development':
+        return { text: 'In Development', color: 'bg-gray-600 text-white' };
+      default:
+        return { text: 'Unknown', color: 'bg-gray-400 text-white' };
+    }
   };
 
   return (
-    <div id="projects" className="min-h-screen bg-white text-black">
-      {/* Projects Section */}
-      <main className="max-w-6xl mx-auto px-6 py-20 lg:py-20">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-black mb-4">Featured Projects</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            A showcase of my professional work across different domains and technologies
-          </p>
-        </div>
+    <section ref={sectionRef} id="projects" className="max-w-7xl mx-auto py-20 px-8 overflow-hidden">
+      {/* Header */}
+      <div className={`text-center mb-20 transition-all duration-1000 ease-out ${
+        isVisible ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-12 opacity-0 scale-95'
+      }`}>
+        <h1 className="text-5xl lg:text-6xl font-extralight text-black mb-6 tracking-tight">
+          Featured Projects
+        </h1>
+        <div className={`w-16 h-px bg-black mx-auto mb-8 transition-all duration-1000 delay-300 ${
+          isVisible ? 'scale-x-100' : 'scale-x-0'
+        }`}></div>
+        <p className={`text-lg text-gray-600 max-w-2xl mx-auto font-light leading-relaxed transition-all duration-800 delay-400 ${
+          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
+        }`}>
+          A curated selection of projects demonstrating technical excellence 
+          and innovative solutions across various domains.
+        </p>
+      </div>
 
-        <div className="space-y-8">
-          {projects.map((project, index) => (
+      {/* Project Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {projects.map((project, index) => {
+          const categoryConfig = getCategoryConfig(project.category);
+          const statusConfig = getStatusConfig(project.status);
+          const isEven = index % 2 === 0;
+          
+          return (
             <div
               key={project.id}
-              className="bg-white border border-gray-200 hover:border-gray-300 hover:shadow-xl transition-all duration-300 group"
+              className={`group bg-white border border-gray-100 hover:border-gray-200 transition-all duration-700 hover:shadow-2xl overflow-hidden transform hover:-translate-y-1 ${
+                isVisible 
+                  ? 'translate-y-0 opacity-100 scale-100 rotate-0' 
+                  : `${isEven ? 'translate-y-12 -translate-x-8' : 'translate-y-12 translate-x-8'} opacity-0 scale-95 ${isEven ? '-rotate-1' : 'rotate-1'}`
+              }`}
+              style={{ 
+                transitionDelay: `${600 + index * 150}ms`,
+                transformOrigin: 'center'
+              }}
             >
-              <div className="p-8">
-                {/* Project Header */}
-                <div className="flex items-start justify-between mb-6">
-                  <div className="flex items-center space-x-4">
-                    {getCategoryIcon(project.category)}
-                    <div>
-                      <h3 className="text-2xl font-bold text-black group-hover:text-gray-800 transition-colors">
-                        {project.title}
-                      </h3>
-                      <p className="text-lg text-gray-600 font-medium">{project.role}</p>
-                      <p className="text-sm text-gray-500">{project.category} • {project.year}</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center space-x-3">
-                    <span className={`inline-flex items-center px-3 py-1 text-sm font-medium border rounded-full ${getStatusColor(project.status)}`}>
-                      {getStatusIcon(project.status)}
-                      <span className="ml-1 capitalize">{project.status}</span>
-                    </span>
+              {/* Project Header Image */}
+              <div className="h-56 relative overflow-hidden bg-gray-50">
+                <img 
+                  src={project.image} 
+                  alt={`${project.title} preview`}
+                  className={`w-full h-full object-cover transition-all duration-700 group-hover:scale-105 ${
+                    isVisible ? 'scale-100' : 'scale-110'
+                  }`}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                
+                {/* Status Badge */}
+                <div className={`absolute top-6 left-6 transition-all duration-600 ${
+                  isVisible ? 'translate-x-0 opacity-100' : '-translate-x-8 opacity-0'
+                }`}
+                style={{ transitionDelay: `${700 + index * 150}ms` }}
+                >
+                  <div className={`inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium ${statusConfig.color} backdrop-blur-sm`}>
+                    <span>{statusConfig.text}</span>
                   </div>
                 </div>
 
-                {/* Project Description */}
-                <p className="text-gray-700 text-base leading-relaxed mb-6">
+                {/* Year Badge */}
+                <div className={`absolute top-6 right-6 transition-all duration-600 ${
+                  isVisible ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
+                }`}
+                style={{ transitionDelay: `${750 + index * 150}ms` }}
+                >
+                  <div className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-white/90 text-gray-900 backdrop-blur-sm">
+                    <Calendar className="w-3 h-3 mr-1.5" />
+                    {project.year}
+                  </div>
+                </div>
+              </div>
+
+              {/* Project Content */}
+              <div className="p-8">
+                {/* Category */}
+                <div className={`mb-6 transition-all duration-600 ${
+                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                }`}
+                style={{ transitionDelay: `${850 + index * 150}ms` }}
+                >
+                  <div className={`inline-flex items-center space-x-2 px-3 py-1.5 rounded-lg text-sm font-medium ${categoryConfig.color}`}>
+                    {categoryConfig.icon}
+                    <span>{project.category}</span>
+                  </div>
+                </div>
+
+                {/* Title and Role */}
+                <div className={`mb-6 transition-all duration-600 ${
+                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                }`}
+                style={{ transitionDelay: `${900 + index * 150}ms` }}
+                >
+                  <h3 className="text-2xl font-light text-black mb-2 leading-tight">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm font-medium text-gray-500 uppercase tracking-wide">
+                    {project.role}
+                  </p>
+                </div>
+
+                {/* Description */}
+                <p className={`text-gray-700 leading-relaxed mb-8 font-light transition-all duration-600 ${
+                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                }`}
+                style={{ transitionDelay: `${950 + index * 150}ms` }}
+                >
                   {project.description}
                 </p>
 
-                {/* Key Features */}
-                <div className="mb-6">
-                  <h4 className="text-sm font-semibold text-gray-900 mb-3">Key Features</h4>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                    {project.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-center text-sm text-gray-700">
-                        <div className="w-2 h-2 bg-black rounded-full mr-3"></div>
-                        {feature}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
                 {/* Tech Stack */}
-                <div className="mb-8">
-                  <h4 className="text-sm font-semibold text-gray-900 mb-3">Technology Stack</h4>
+                <div className={`mb-8 transition-all duration-600 ${
+                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                }`}
+                style={{ transitionDelay: `${1000 + index * 150}ms` }}
+                >
                   <div className="flex flex-wrap gap-2">
-                    {project.techStack.map((tech, idx) => (
+                    {project.techStack.slice(0, 4).map((tech, idx) => (
                       <span
                         key={idx}
-                        className={`px-3 py-1 text-sm font-medium border rounded-full ${getTechColor(tech)}`}
+                        className={`px-3 py-1.5 bg-gray-50 text-gray-700 text-sm font-medium border border-gray-100 hover:bg-gray-100 hover:border-gray-200 transition-all duration-300 ${
+                          isVisible ? 'scale-100' : 'scale-90'
+                        }`}
+                        style={{ transitionDelay: `${1050 + index * 150 + idx * 50}ms` }}
                       >
                         {tech}
                       </span>
                     ))}
+                    {project.techStack.length > 4 && (
+                      <span className="px-3 py-1.5 bg-gray-50 text-gray-500 text-sm font-medium border border-gray-100">
+                        +{project.techStack.length - 4}
+                      </span>
+                    )}
                   </div>
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex items-center space-x-4">
+                <div className={`flex items-center space-x-4 transition-all duration-600 ${
+                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
+                }`}
+                style={{ transitionDelay: `${1100 + index * 150}ms` }}
+                >
                   {project.link && (
                     <a
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center px-6 py-3 bg-black text-white hover:bg-gray-800 transition-colors duration-200 font-medium"
+                      className="inline-flex items-center px-6 py-3 bg-black text-white hover:bg-gray-900 transition-all duration-300 text-sm font-medium group/btn"
                     >
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      View Live Site
+                      <span>View Project</span>
+                      <ArrowUpRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
                     </a>
                   )}
                   {project.githubRepo && (
@@ -243,26 +293,57 @@ const Portfolio: React.FC = () => {
                       href={project.githubRepo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center px-6 py-3 border border-gray-300 text-gray-700 hover:border-black hover:text-black transition-colors duration-200 font-medium"
+                      className="inline-flex items-center px-6 py-3 border border-gray-200 text-gray-700 hover:border-gray-300 hover:text-black hover:bg-gray-50 transition-all duration-300 text-sm font-medium"
                     >
                       <Github className="w-4 h-4 mr-2" />
                       Source Code
                     </a>
                   )}
-                  {!project.link && !project.githubRepo && (
-                    <div className="inline-flex items-center px-6 py-3 bg-gray-100 text-gray-500 font-medium">
-                      <Calendar className="w-4 h-4 mr-2" />
-                      Project Completed
-                    </div>
-                  )}
                 </div>
               </div>
             </div>
-          ))}
+          );
+        })}
+      </div>
+
+      {/* View More Section */}
+      <div className={`text-center mt-20 transition-all duration-1000 ease-out ${
+        isVisible ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-12 opacity-0 scale-95'
+      }`}
+      style={{ transitionDelay: '1400ms' }}
+      >
+        <div className="inline-block bg-gray-50 border border-gray-100 p-12 hover:shadow-lg transition-all duration-500">
+          <h3 className={`text-2xl font-light text-black mb-4 transition-all duration-600 ${
+            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+          }`}
+          style={{ transitionDelay: '1500ms' }}
+          >
+            Explore More Projects
+          </h3>
+          <p className={`text-gray-600 mb-8 max-w-md mx-auto font-light leading-relaxed transition-all duration-600 ${
+            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+          }`}
+          style={{ transitionDelay: '1600ms' }}
+          >
+            Discover additional projects and contributions showcasing 
+            diverse technical implementations and solutions.
+          </p>
+          <a
+            href="https://github.com/BagusHidayat21?tab=repositories"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`inline-flex items-center px-8 py-4 bg-black text-white hover:bg-gray-900 transition-all duration-300 font-medium ${
+              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+            }`}
+            style={{ transitionDelay: '1700ms' }}
+          >
+            <Github className="w-5 h-5 mr-3" />
+            View GitHub Repository
+          </a>
         </div>
-      </main>
-    </div>
+      </div>
+    </section>
   );
 };
 
-export default Portfolio;
+export default ProjectCards;
