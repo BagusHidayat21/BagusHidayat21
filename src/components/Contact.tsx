@@ -53,41 +53,34 @@ const GetInTouch: React.FC = () => {
   }, []);
 
   return (
-    <section 
+    <section
       ref={sectionRef}
-      id="contact" 
-      className="max-w-4xl mx-auto py-20 px-8 md:px-4 relative overflow-hidden"
+      id="contact"
+      className="max-w-4xl mx-auto py-20 px-8 md:px-4 relative overflow-hidden bg-white dark:bg-gray-950 transition-colors"
     >
       {/* Animated background elements */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className={`absolute top-10 left-10 w-2 h-2 bg-blue-400 rounded-full transition-all duration-1000 ${
-          isVisible ? 'opacity-60 animate-pulse' : 'opacity-0 translate-y-4'
-        }`}></div>
-        <div className={`absolute top-32 right-20 w-1 h-1 bg-purple-400 rounded-full transition-all duration-1200 delay-200 ${
-          isVisible ? 'opacity-50 animate-bounce' : 'opacity-0 translate-y-4'
-        }`}></div>
-        <div className={`absolute bottom-40 left-1/4 w-1.5 h-1.5 bg-green-400 rounded-full transition-all duration-1400 delay-400 ${
-          isVisible ? 'opacity-40 animate-ping' : 'opacity-0 translate-y-4'
-        }`}></div>
-        <div className={`absolute bottom-20 right-1/3 w-1 h-1 bg-yellow-400 rounded-full transition-all duration-1600 delay-600 ${
-          isVisible ? 'opacity-60 animate-pulse' : 'opacity-0 translate-y-4'
-        }`}></div>
+        <div className={`absolute top-10 left-10 w-2 h-2 bg-blue-400 rounded-full transition-all duration-1000 ${isVisible ? 'opacity-60 animate-pulse' : 'opacity-0 translate-y-4'
+          }`}></div>
+        <div className={`absolute top-32 right-20 w-1 h-1 bg-purple-400 rounded-full transition-all duration-1200 delay-200 ${isVisible ? 'opacity-50 animate-bounce' : 'opacity-0 translate-y-4'
+          }`}></div>
+        <div className={`absolute bottom-40 left-1/4 w-1.5 h-1.5 bg-green-400 rounded-full transition-all duration-1400 delay-400 ${isVisible ? 'opacity-40 animate-ping' : 'opacity-0 translate-y-4'
+          }`}></div>
+        <div className={`absolute bottom-20 right-1/3 w-1 h-1 bg-yellow-400 rounded-full transition-all duration-1600 delay-600 ${isVisible ? 'opacity-60 animate-pulse' : 'opacity-0 translate-y-4'
+          }`}></div>
       </div>
 
       <div className="text-center mb-16">
-        <h1 className={`text-4xl lg:text-5xl font-light text-black mb-4 transition-all duration-1000 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-        }`}>
+        <h1 className={`text-4xl lg:text-5xl font-light text-black dark:text-white mb-4 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
           Get In Touch
         </h1>
-        <div className={`h-0.5 bg-black mx-auto mb-6 transition-all duration-1200 delay-200 ${
-          isVisible ? 'w-20 opacity-100' : 'w-0 opacity-0'
-        }`}></div>
-        <p className={`text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-400 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-        }`}>
-          I'm always interested in new opportunities and collaborations. 
-          Whether you have a project in mind, want to discuss potential partnerships, 
+        <div className={`h-0.5 bg-black dark:bg-white mx-auto mb-6 transition-all duration-1200 delay-200 ${isVisible ? 'w-20 opacity-100' : 'w-0 opacity-0'
+          }`}></div>
+        <p className={`text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
+          I'm always interested in new opportunities and collaborations.
+          Whether you have a project in mind, want to discuss potential partnerships,
           or just want to say hello, feel free to reach out through any of these platforms.
         </p>
       </div>
@@ -98,33 +91,32 @@ const GetInTouch: React.FC = () => {
           return (
             <div
               key={link.name}
-              className={`group relative transition-all duration-1000 ${
-                isVisible 
-                  ? 'opacity-100 translate-y-0 scale-100' 
+              className={`group relative transition-all duration-1000 ${isVisible
+                  ? 'opacity-100 translate-y-0 scale-100'
                   : 'opacity-0 translate-y-12 scale-95'
-              }`}
+                }`}
               style={{ transitionDelay: `${600 + index * 200}ms` }}
             >
               <a
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block p-8 bg-white border border-gray-200 transition-all duration-500 ease-out transform hover:scale-105 hover:shadow-2xl hover:bg-black hover:border-black group hover:-translate-y-2"
+                className="block p-8 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 transition-all duration-500 ease-out transform hover:scale-105 hover:shadow-2xl hover:bg-black dark:hover:bg-white hover:border-black dark:hover:border-white group hover:-translate-y-2"
               >
                 <div className="text-center">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-50 rounded-full mb-6 transition-all duration-500 group-hover:bg-white group-hover:scale-110">
-                    <IconComponent className="w-8 h-8 text-gray-700 transition-all duration-500 group-hover:text-black" />
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-50 dark:bg-gray-800 rounded-full mb-6 transition-all duration-500 group-hover:bg-white dark:group-hover:bg-black group-hover:scale-110">
+                    <IconComponent className="w-8 h-8 text-gray-700 dark:text-gray-300 transition-all duration-500 group-hover:text-black dark:group-hover:text-white" />
                   </div>
-                  
-                  <h3 className="text-2xl font-light text-black mb-3 transition-all duration-500 group-hover:text-white">
+
+                  <h3 className="text-2xl font-light text-black dark:text-white mb-3 transition-all duration-500 group-hover:text-white dark:group-hover:text-black">
                     {link.name}
                   </h3>
-                  
-                  <p className="text-gray-500 mb-4 text-sm leading-relaxed transition-all duration-500 group-hover:text-gray-200">
+
+                  <p className="text-gray-500 dark:text-gray-400 mb-4 text-sm leading-relaxed transition-all duration-500 group-hover:text-gray-200 dark:group-hover:text-gray-600">
                     {link.description}
                   </p>
-                  
-                  <div className="flex items-center justify-center space-x-2 text-xs font-medium text-gray-400 transition-all duration-500 group-hover:text-gray-300">
+
+                  <div className="flex items-center justify-center space-x-2 text-xs font-medium text-gray-400 dark:text-gray-500 transition-all duration-500 group-hover:text-gray-300 dark:group-hover:text-gray-600">
                     <span>{link.username}</span>
                     <ExternalLink className="w-3 h-3 transition-transform duration-300 group-hover:rotate-45" />
                   </div>
@@ -135,38 +127,31 @@ const GetInTouch: React.FC = () => {
         })}
       </div>
 
-      <div className={`text-center transition-all duration-1000 delay-1000 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-      }`}>
-        <div className="inline-block bg-white border border-gray-200 p-8 transition-all duration-300 hover:shadow-lg hover:scale-105">
-          <h3 className="text-2xl font-light text-black mb-4">Let's Create Something Amazing</h3>
-          <p className="text-gray-600 max-w-2xl mx-auto mb-6 leading-relaxed">
-            I'm currently <span className="text-black font-medium">available for freelance work</span> and 
+      <div className={`text-center transition-all duration-1000 delay-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}>
+        <div className="inline-block bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 p-8 transition-all duration-300 hover:shadow-lg hover:scale-105">
+          <h3 className="text-2xl font-light text-black dark:text-white mb-4">Let's Create Something Amazing</h3>
+          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-6 leading-relaxed">
+            I'm currently <span className="text-black dark:text-white font-medium">available for freelance work</span> and
             open to discussing new projects. I typically respond within 24-48 hours.
           </p>
-          <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-500">
-            <span className={`flex items-center space-x-2 transition-all duration-800 delay-1200 ${
-              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
-            }`}>
-              <div className={`w-2 h-2 bg-green-500 rounded-full transition-all duration-1000 delay-1400 ${
-                isVisible ? 'animate-pulse' : 'scale-0'
-              }`}></div>
+          <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-500 dark:text-gray-400">
+            <span className={`flex items-center space-x-2 transition-all duration-800 delay-1200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
+              }`}>
+              <div className={`w-2 h-2 bg-green-500 rounded-full transition-all duration-1000 delay-1400 ${isVisible ? 'animate-pulse' : 'scale-0'
+                }`}></div>
               <span>Available for work</span>
             </span>
-            <span className={`flex items-center space-x-2 transition-all duration-800 delay-1300 ${
-              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
-            }`}>
-              <div className={`w-2 h-2 bg-blue-500 rounded-full transition-all duration-1000 delay-1500 ${
-                isVisible ? 'animate-pulse' : 'scale-0'
-              }`}></div>
+            <span className={`flex items-center space-x-2 transition-all duration-800 delay-1300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
+              }`}>
+              <div className={`w-2 h-2 bg-blue-500 rounded-full transition-all duration-1000 delay-1500 ${isVisible ? 'animate-pulse' : 'scale-0'
+                }`}></div>
               <span>Open to collaborations</span>
             </span>
-            <span className={`flex items-center space-x-2 transition-all duration-800 delay-1400 ${
-              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
-            }`}>
-              <div className={`w-2 h-2 bg-yellow-500 rounded-full transition-all duration-1000 delay-1600 ${
-                isVisible ? 'animate-pulse' : 'scale-0'
-              }`}></div>
+            <span className={`flex items-center space-x-2 transition-all duration-800 delay-1400 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
+              }`}>
+              <div className={`w-2 h-2 bg-yellow-500 rounded-full transition-all duration-1000 delay-1600 ${isVisible ? 'animate-pulse' : 'scale-0'
+                }`}></div>
               <span>Quick response time</span>
             </span>
           </div>

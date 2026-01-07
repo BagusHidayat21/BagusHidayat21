@@ -36,16 +36,15 @@ const HeroSection: React.FC<HeroProps> = ({
   }, []);
 
   return (
-    <section className="min-h-screen bg-white flex items-center justify-center px-8 py-20 lg:py-20 bg-white">
+    <section className="min-h-screen bg-white dark:bg-gray-950 flex items-center justify-center px-8 py-20 lg:py-20 transition-colors">
       <div className="max-w-4xl mx-auto text-center">
-        
+
         {/* Content */}
-        <div className={`space-y-12 transition-all duration-1000 ${
-          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-        }`}>
-          
+        <div className={`space-y-12 transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+          }`}>
+
           {/* Location */}
-          <div className="flex items-center justify-center space-x-2 text-gray-600">
+          <div className="flex items-center justify-center space-x-2 text-gray-600 dark:text-gray-400">
             <MapPin size={16} />
             <span className="text-sm font-medium tracking-wide">{location}</span>
           </div>
@@ -53,21 +52,21 @@ const HeroSection: React.FC<HeroProps> = ({
           {/* Main Content */}
           <div className="space-y-8">
             <div>
-              <h1 className="text-5xl lg:text-7xl font-light text-black leading-tight mb-6">
+              <h1 className="text-5xl lg:text-7xl font-light text-black dark:text-white leading-tight mb-6">
                 <Typewriter words={[`Hello, I'm ${name}`]} cursor cursorStyle="|" typeSpeed={100} deleteSpeed={50} delaySpeed={10000} loop />
               </h1>
-              <h2 className="text-2xl lg:text-4xl font-light text-gray-700 mb-8">
+              <h2 className="text-2xl lg:text-4xl font-light text-gray-700 dark:text-gray-300 mb-8">
                 {title}
               </h2>
             </div>
 
-            <div className="w-20 h-0.5 bg-black mx-auto"></div>
+            <div className="w-20 h-0.5 bg-black dark:bg-white mx-auto"></div>
 
             <div className="max-w-2xl mx-auto">
-              <h3 className="text-2xl lg:text-3xl font-medium text-black mb-6">
+              <h3 className="text-2xl lg:text-3xl font-medium text-black dark:text-white mb-6">
                 {subtitle}
               </h3>
-              <p className="text-gray-600 text-xl leading-relaxed">
+              <p className="text-gray-600 dark:text-gray-400 text-xl leading-relaxed">
                 {description}
               </p>
             </div>
@@ -77,7 +76,7 @@ const HeroSection: React.FC<HeroProps> = ({
           <div className="pt-8">
             <a
               href={ctaHref}
-              className="inline-flex items-center space-x-3 px-10 py-5 bg-black text-white text-lg font-medium hover:bg-gray-800 transition-all duration-300 group"
+              className="inline-flex items-center space-x-3 px-10 py-5 bg-black dark:bg-white text-white dark:text-black text-lg font-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 group"
             >
               <span>{ctaText}</span>
               <ArrowDown size={18} className="group-hover:translate-y-1 transition-transform duration-300" />
@@ -85,18 +84,17 @@ const HeroSection: React.FC<HeroProps> = ({
           </div>
 
           {/* Quick Stats */}
-          <div className={`pt-16 transition-all duration-1000 delay-300 ${
-            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-          }`}>
+          <div className={`pt-16 transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+            }`}>
             <div className="flex items-center justify-center space-x-12 lg:space-x-20">
               <div className="text-center">
-                <div className="text-3xl lg:text-4xl font-bold text-black mb-2">{projects}+</div>
-                <div className="text-sm text-gray-600 font-medium tracking-wide">PROJECTS</div>
+                <div className="text-3xl lg:text-4xl font-bold text-black dark:text-white mb-2">{projects}+</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400 font-medium tracking-wide">PROJECTS</div>
               </div>
-              <div className="w-px h-16 bg-gray-200"></div>
+              <div className="w-px h-16 bg-gray-200 dark:bg-gray-700"></div>
               <div className="text-center">
-                <div className="text-3xl lg:text-4xl font-bold text-black mb-2">3+</div>
-                <div className="text-sm text-gray-600 font-medium tracking-wide">YEARS EXP</div>
+                <div className="text-3xl lg:text-4xl font-bold text-black dark:text-white mb-2">3+</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400 font-medium tracking-wide">YEARS EXP</div>
               </div>
             </div>
           </div>

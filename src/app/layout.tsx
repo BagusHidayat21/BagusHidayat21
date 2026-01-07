@@ -4,6 +4,7 @@ import "./globals.css";
 import Topbar from "@/components/Topbar";
 import Footer from "@/components/Footer";
 import ClientLayout from "@/components/ClientLayout";
+import { ThemeProvider } from "@/context/ThemeContext";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -22,13 +23,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${poppins.variable} font-sans antialiased`}>
-        <ClientLayout>
-          <header><Topbar /></header>
-          <main>{children}</main>
-          <footer><Footer /></footer>
-        </ClientLayout>
+        <ThemeProvider>
+          <ClientLayout>
+            <header><Topbar /></header>
+            <main>{children}</main>
+            <footer><Footer /></footer>
+          </ClientLayout>
+        </ThemeProvider>
       </body>
     </html>
   );
